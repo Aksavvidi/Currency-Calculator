@@ -27,7 +27,7 @@ import { CanActivateUserGuard } from '../can-activate-user.guard';
 // };
 
 const routes: Routes = [
-  {path: 'table', component: ExchangeRateComponent, canActivate:[CanActivateUserGuard]},
+  {path: 'table', component: ExchangeRateComponent,} //canActivate:[CanActivateUserGuard]},
 ];
 
 @NgModule({
