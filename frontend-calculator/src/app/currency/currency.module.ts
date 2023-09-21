@@ -14,7 +14,7 @@ import { CanActivateUserGuard } from '../can-activate-user.guard';
 
 
 const routes: Routes = [
-  {path:'table', component: CurrenciesComponent, canActivate: [CanActivateUserGuard]},
+  {path:'table', component: CurrenciesComponent,}// canActivate: [CanActivateUserGuard]},
 ];
 
 @NgModule({

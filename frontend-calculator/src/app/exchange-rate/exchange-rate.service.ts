@@ -10,7 +10,7 @@ export class ExchangeRateService {
   constructor(private http: HttpClient) {}
 
   getAllExchangeRates(){
-    return this.http.get<exchangeRateAPI>(`${EXCHANGE_API}/`).pipe(delay(1000));
+    return this.http.get<exchangeRateAPI>(`${EXCHANGE_API}/`);
   }
 
   getExchangeRatesByBaseCurrency(baseCurrency: string){

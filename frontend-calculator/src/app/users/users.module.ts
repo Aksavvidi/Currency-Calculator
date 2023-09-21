@@ -26,7 +26,7 @@ import { CanActivateUserGuard } from '../can-activate-user.guard';
 // };
 
 const routes: Routes = [
-  {path:'', component: UsersAllComponent, canActivate: [CanActivateUserGuard] },
+  {path:'', component: UsersAllComponent,}// canActivate: [CanActivateUserGuard] },
 ];
 
 @NgModule({
