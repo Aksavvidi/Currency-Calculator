@@ -1,0 +1,36 @@
+<div>
+<button mat-raised-button color="primary" (click)="openUserCreationDialog()">Add User</button>
+</div>
+<div *ngIf="userList.length">
+    <table class="table table-striped">
+        <thead>
+            <th scope="col">
+                username
+            </th>
+            <th scope="col">
+                email
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userList">
+                <td>
+                    {{user.username}}
+                </td>
+                <td>
+                    {{user.email}}
+                </td>
+                <td>
+                    <a class="btn action-btn text-dark"(click)="openPopup(user)">
+                        <i class="material-icons text-dark" >edit</i>
+                        <!-- <mat-icon aria-hidden="false" aria-label="Edit" fontIcon="edit"></mat-icon> -->
+                    </a>
+                    <a class = "btn action-btn text-danger" (click)="OnUserDelete(user.username)" >
+                        <i class="material-icons text-danger">delete</i> 
+                        <!-- <mat-icon aria-hidden="false" aria-label="Delete" fontIcon="delete"></mat-icon> -->
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+   
+</div>

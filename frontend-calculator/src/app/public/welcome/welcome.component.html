@@ -1,0 +1,55 @@
+<div class="row">
+  <div class = "col">
+    <h1>CURRENCY CALCULATOR</h1>
+  </div> 
+  <div class="d-flex justify-content-end mt-2 col">
+    <div class="d-flex">
+      <form class="d-flex my-2">
+        <input class="form-control me-2" type="search" placeholder="Search Currency Code" aria-label="Search"[(ngModel)]="searchQuery"[ngModelOptions]="{ standalone: true }">
+        <button class="btn btn-outline-success" type="submit"(click)="onSearch()">Search</button>
+      </form>
+    </div>
+  </div> 
+</div>
+<div>
+  <form (ngSubmit)="onConvert()" #convertForm="ngForm">
+    <div class= "md-3">
+      <label for="exchangeRate" class="form-label">Select Exchange Rate:</label>
+      <select id="exchangeRate" class="form-label" name="exchangeRate" [(ngModel)]="selectedExchangeRate" required>
+          <option value="">-- Select Exchange Rate --</option>
+          <option *ngFor="let rate of exchangeRate" [ngValue]="rate">{{ rate.baseCurrency }} to {{ rate.targetCurrency }}</option>
+        </select>
+    </div>
+    <div class= "md-3">
+      <label for="amount" class="form-label" >Enter Amount:</label>
+      <input type="number" id="amount" class="form-label" name="amount" [(ngModel)]="amount" required>
+    </div>
+    <div class= "md-3">
+      <button type="submit" class="btn btn-dark">Convert</button>
+    </div>
+    </form>
+</div>
+<div class="row justify-content-between">
+  <div *ngIf="convertedAmount !== null && selectedExchangeRate !== null" class="converted-amount col-md-4">
+    <p>Converted Amount:  <span class="amount">{{ convertedAmount | number:'1.2-2' }}</span> {{ selectedExchangeRate.targetCurrency }}</p>
+    </div>
+    <div class="col-md-4">
+        <div *ngIf="currencyList.length > 0 else noMatchingCurrencies" class="currency-list">
+          <h2>Matching Currencies:</h2>
+        <ul>
+          <li *ngFor="let currency of currencyList">
+          {{ currency.code }} - {{ currency.name }}
+          </li>
+      </ul>
+      </div>
+    </div> 
+    <ng-template #noMatchingCurrencies>
+      <div class="col-md-4">
+        <div class="no-matching-currencies">
+          <p>No matching currencies found.</p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+    
+ 

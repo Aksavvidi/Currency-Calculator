@@ -1,0 +1,11 @@
+.converted-amount {
+    padding: 10px; 
+    border: 1px solid black; 
+    width: fit-content;
+  }
+  
+  .amount {
+    font-size: 18px; 
+    font-weight: bold; 
+    color: black; 
+  }

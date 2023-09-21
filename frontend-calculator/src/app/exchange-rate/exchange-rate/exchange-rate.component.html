@@ -1,0 +1,43 @@
+
+<div>
+    <button mat-raised-button color="primary" (click)="openExchangeCreationDialog()">Add Exchange Rate</button>
+</div>
+<div *ngIf="exchangeRateList.length">
+    <table class="table table-striped">
+        <thead>
+            <th scope="col">
+                BaseCurrency
+            </th>
+            <th scope="col">
+                TargetCurrency
+            </th>
+            <th scope="col">
+                Rate
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rate of exchangeRateList">
+                <td>
+                    {{rate.baseCurrency}}
+                </td>
+                <td>
+                    {{rate.targetCurrency}}
+                </td>
+                <td>
+                    {{rate.rate}}
+                </td>
+                <td>
+                    <a class="btn action-btn text-dark"(click)="openPopup(rate)">
+                        <i class="material-icons text-dark" >edit</i>
+                        <!-- <mat-icon aria-hidden="false" aria-label="Edit" fontIcon="edit"></mat-icon> -->
+                    </a>
+                    <a class = "btn action-btn text-danger" (click)="OnExchangeRateDelete(rate.baseCurrency, rate.targetCurrency)" >
+                        <i class="material-icons text-danger">delete</i> 
+                        <!-- <mat-icon aria-hidden="false" aria-label="Delete" fontIcon="delete"></mat-icon> -->
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
